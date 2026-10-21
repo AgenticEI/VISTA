@@ -51,7 +51,7 @@ python -m pip install -e '.[sam3]'
 
 These environments may be separate. The LIBERO extra pins MuJoCo to `3.3.0`, matching the simulator behavior expected by the experiment code. Prepare the LIBERO-Pro assets, Pi0.5 checkpoint, SAM3 checkpoint and BPE file using the relevant projects' installation instructions. Weights and simulator assets are external resources and are not included in this repository.
 
-The host also needs a compatible Codex CLI for Meta development and access to the selected language models. Set `CODEX_BIN` if the executable is not in a standard location. Model IDs in the research configurations record the experiment settings; choose IDs available through your provider when starting a new run.
+The host also needs a compatible Codex CLI for Meta development and access to the selected language models. Set `CODEX_BIN` if the executable is not in a standard location. Model IDs in the research configurations record the experiment settings; choose IDs available through your provider when starting a new run. The paper’s recorded model variants and ablation resource settings are listed in [experiment-models.json](docs/experiment-models.json).
 
 ## Start one small experiment
 

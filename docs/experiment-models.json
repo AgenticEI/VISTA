@@ -1,0 +1,32 @@
+{
+  "description": "Recorded model settings for the paper; source code currently released for LIBERO-Pro. Model identifiers must be available through the selected provider.",
+  "benchmarks": {
+    "LIBERO-Pro": {
+      "planner": "openai-responses:gpt-5.6-sol",
+      "meta": "gpt-6-astra",
+      "learned_policy": "pi0.5"
+    },
+    "RoboCasa365": {
+      "planner": "openai-responses:gpt-5.6-sol",
+      "meta": "gpt-6-astra",
+      "learned_policy": "RLDX-1"
+    },
+    "RoboTwin": {
+      "planner": "openai-responses:gpt-5.6-sol",
+      "meta": "gpt-6.1-sol",
+      "learned_policy": "LingBot-VLA"
+    }
+  },
+  "active_passive_comparison": {
+    "tasks": [
+      "goal-t00",
+      "goal-t03",
+      "goal-t05",
+      "goal-t06"
+    ],
+    "evaluations": "Eight scene seeds with two repetitions per task.",
+    "resource_settings": "The first two passive rounds for goal-t00 and goal-t03 predate the token-target gate. Subsequent runs use token targets. Goal-t05 uses a separate provider and reasoning setting.",
+    "token_accounting": "Actual cumulative Meta usage includes cached/uncached input, output, and sub-agent tokens.",
+    "private_endpoints": "Not distributed; configure an available provider locally."
+  }
+}
