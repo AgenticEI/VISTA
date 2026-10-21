@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "id": "libero_pro_h0_min",
+  "prompts": {
+    "system": "prompts/system.md",
+    "user": "prompts/user.md"
+  },
+  "native_tools": [
+    "read_text_file",
+    "write_text_file",
+    "list_dir",
+    "finish"
+  ],
+  "planner_tools": [
+    "read_image"
+  ],
+  "skills": [
+    {
+      "name": "observe",
+      "requires": {
+        "sensor": "cap:observation.public@1"
+      }
+    },
+    {
+      "name": "vla_step",
+      "requires": {
+        "chunk": "cap:policy.libero.pi05.chunk@1"
+      }
+    }
+  ],
+  "policy": "policy.py:Policy",
+  "memory": {
+    "path": "memory",
+    "episode_notes": true
+  }
+}

@@ -1,0 +1,47 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Local run outputs.
+logs/
+parallel-run-*.log
+/experiments/
+/runs/
+/vars.sh
+
+# Credentials. configs/env.sh is tracked and holds paths and endpoints only;
+# the keys live in the gitignored env.local.sh beside it. See
+# configs/env.example.sh for the expected shape.
+/configs/env.local.sh
+/configs/local/
+/.codex/
+auth.json
+*.local.sh
+*.local.json
+
+# Tool caches.
+.pytest_cache/
+.ruff_cache/
+
+/checkpoints/
+
+# RLinf is consumed as an external checkout, not vendored here.
+/rlinf/
+/rlinf.egg-info/
+
+/resources/
+
+uv.lock
+
+# Documentation build artifacts and local environment.
+.docs-venv/
+/.venv/
+docs/build/
+
+build/
+.claude/settings.json
+
+/configs/providers.local.sh
+
+# Pinned external simulator and CUDA build trees.
+/vendor/

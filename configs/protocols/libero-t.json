@@ -1,0 +1,469 @@
+{
+  "schema_version": 2,
+  "mode": "formal",
+  "initial_harness": "harnesses/libero_pro_h0_min",
+  "capability_catalog": "robots/libero/harness_capabilities.json",
+  "suites": [
+    {
+      "id": "spatial",
+      "label": "LIBERO-PRO spatial",
+      "backend_suite": "libero_spatial_task",
+      "tasks": [
+        {
+          "id": "spatial-t00",
+          "task_index": 0
+        },
+        {
+          "id": "spatial-t01",
+          "task_index": 1
+        },
+        {
+          "id": "spatial-t02",
+          "task_index": 2
+        },
+        {
+          "id": "spatial-t03",
+          "task_index": 3
+        },
+        {
+          "id": "spatial-t04",
+          "task_index": 4
+        },
+        {
+          "id": "spatial-t05",
+          "task_index": 5
+        },
+        {
+          "id": "spatial-t06",
+          "task_index": 6
+        },
+        {
+          "id": "spatial-t07",
+          "task_index": 7
+        },
+        {
+          "id": "spatial-t08",
+          "task_index": 8
+        },
+        {
+          "id": "spatial-t09",
+          "task_index": 9
+        }
+      ]
+    },
+    {
+      "id": "object",
+      "label": "LIBERO-PRO object",
+      "backend_suite": "libero_object_task",
+      "tasks": [
+        {
+          "id": "object-t00",
+          "task_index": 0
+        },
+        {
+          "id": "object-t01",
+          "task_index": 1
+        },
+        {
+          "id": "object-t02",
+          "task_index": 2
+        },
+        {
+          "id": "object-t03",
+          "task_index": 3
+        },
+        {
+          "id": "object-t04",
+          "task_index": 4
+        },
+        {
+          "id": "object-t05",
+          "task_index": 5
+        },
+        {
+          "id": "object-t06",
+          "task_index": 6
+        },
+        {
+          "id": "object-t07",
+          "task_index": 7
+        },
+        {
+          "id": "object-t08",
+          "task_index": 8
+        },
+        {
+          "id": "object-t09",
+          "task_index": 9
+        }
+      ]
+    },
+    {
+      "id": "goal",
+      "label": "LIBERO-PRO goal",
+      "backend_suite": "libero_goal_task",
+      "tasks": [
+        {
+          "id": "goal-t00",
+          "task_index": 0
+        },
+        {
+          "id": "goal-t01",
+          "task_index": 1
+        },
+        {
+          "id": "goal-t02",
+          "task_index": 2
+        },
+        {
+          "id": "goal-t03",
+          "task_index": 3
+        },
+        {
+          "id": "goal-t04",
+          "task_index": 4
+        },
+        {
+          "id": "goal-t05",
+          "task_index": 5
+        },
+        {
+          "id": "goal-t06",
+          "task_index": 6
+        },
+        {
+          "id": "goal-t07",
+          "task_index": 7
+        },
+        {
+          "id": "goal-t08",
+          "task_index": 8
+        },
+        {
+          "id": "goal-t09",
+          "task_index": 9
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "label": "LIBERO-PRO 10",
+      "backend_suite": "libero_10_task",
+      "tasks": [
+        {
+          "id": "10-t00",
+          "task_index": 0
+        },
+        {
+          "id": "10-t01",
+          "task_index": 1
+        },
+        {
+          "id": "10-t02",
+          "task_index": 2
+        },
+        {
+          "id": "10-t03",
+          "task_index": 3
+        },
+        {
+          "id": "10-t04",
+          "task_index": 4
+        },
+        {
+          "id": "10-t05",
+          "task_index": 5
+        },
+        {
+          "id": "10-t06",
+          "task_index": 6
+        },
+        {
+          "id": "10-t07",
+          "task_index": 7
+        },
+        {
+          "id": "10-t08",
+          "task_index": 8
+        },
+        {
+          "id": "10-t09",
+          "task_index": 9
+        }
+      ]
+    }
+  ],
+  "seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007
+  ],
+  "parallel": {
+    "rounds": 10,
+    "repeats": 2
+  },
+  "joint": {
+    "rounds": 3,
+    "repeats": 1
+  },
+  "selection": {
+    "donor": "selected",
+    "accept": "strict_improvement",
+    "tie": "incumbent",
+    "round_completion": "complete_candidate_evaluation_and_selection",
+    "merge_conflicts": "joint_meta_before_rounds",
+    "h0_state_visibility": "reference_fields",
+    "perfect_rounds": 2
+  },
+  "development": {
+    "timeout_s": null,
+    "finish_reserve_s": null,
+    "max_evaluation_requests": 12,
+    "max_no_candidate_recoveries": 1,
+    "deadline_action": null,
+    "time_limit_enabled": false,
+    "live_trials": 2,
+    "max_provider_failures": 3,
+    "max_no_progress_turns": 3
+  },
+  "evaluation": {
+    "infrastructure_retries": 3
+  },
+  "episode": {
+    "command": [
+      "@RPENT_PYTHON@",
+      "-m",
+      "rpent.cli.main",
+      "--robot",
+      "libero",
+      "--planner",
+      "api",
+      "--model",
+      "openai-responses:gpt-5.6-sol",
+      "--max-turns",
+      "100",
+      "--max-tokens",
+      "8192",
+      "--reasoning-effort",
+      "high",
+      "--planner-timeout-s",
+      "2400",
+      "--env-python",
+      "@RPENT_ENV_PYTHON@",
+      "--max-episode-steps",
+      "10000"
+    ],
+    "timeout_s": 14400,
+    "required_env": [
+      "OPENAI_API_KEY",
+      "OPENAI_BASE_URL"
+    ],
+    "env_passthrough": [
+      "OPENAI_API_KEY",
+      "OPENAI_BASE_URL",
+      "PYTHONPATH",
+      "RPENT_REPO_ROOT",
+      "NO_PROXY",
+      "no_proxy",
+      "HF_HUB_OFFLINE",
+      "HF_HOME",
+      "LIBERO_TYPE",
+      "PI05_CHECKPOINT_PATH",
+      "TOKENIZERS_PARALLELISM"
+    ],
+    "policy_seed": 20260911,
+    "trace_mode": "full_rgb"
+  },
+  "meta": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "ultra",
+    "provider": {
+      "name": "configured",
+      "base_url": "https://api.openai.com/v1",
+      "env_key": "OPENAI_API_KEY",
+      "wire_api": "responses"
+    }
+  },
+  "pool": {
+    "gpu_devices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "profile": {
+      "name": "libero-t-protocol",
+      "max_episodes": 40,
+      "max_meta": 8,
+      "max_planner_requests": 40,
+      "env_devices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "vla": [
+        {
+          "capacity": 10,
+          "endpoint": "http://127.0.0.1:8620",
+          "gpu_device": 0,
+          "launch": {
+            "command": [
+              "@RPENT_VLA_PYTHON@",
+              "@REPO_ROOT@/rpent/robots/components/pi05_vla_server.py",
+              "--transport",
+              "http",
+              "--host",
+              "127.0.0.1",
+              "--port",
+              "8620",
+              "--cuda-device",
+              "0",
+              "--model-path",
+              "@PI05_CHECKPOINT_PATH@"
+            ],
+            "env_passthrough": [
+              "HF_HUB_OFFLINE",
+              "HF_HOME",
+              "PI05_CHECKPOINT_PATH",
+              "TOKENIZERS_PARALLELISM"
+            ],
+            "timeout_s": 600
+          },
+          "session_protocol": "pi05"
+        },
+        {
+          "capacity": 10,
+          "endpoint": "http://127.0.0.1:8621",
+          "gpu_device": 2,
+          "launch": {
+            "command": [
+              "@RPENT_VLA_PYTHON@",
+              "@REPO_ROOT@/rpent/robots/components/pi05_vla_server.py",
+              "--transport",
+              "http",
+              "--host",
+              "127.0.0.1",
+              "--port",
+              "8621",
+              "--cuda-device",
+              "2",
+              "--model-path",
+              "@PI05_CHECKPOINT_PATH@"
+            ],
+            "env_passthrough": [
+              "HF_HUB_OFFLINE",
+              "HF_HOME",
+              "PI05_CHECKPOINT_PATH",
+              "TOKENIZERS_PARALLELISM"
+            ],
+            "timeout_s": 600
+          },
+          "session_protocol": "pi05"
+        },
+        {
+          "capacity": 10,
+          "endpoint": "http://127.0.0.1:8622",
+          "gpu_device": 3,
+          "launch": {
+            "command": [
+              "@RPENT_VLA_PYTHON@",
+              "@REPO_ROOT@/rpent/robots/components/pi05_vla_server.py",
+              "--transport",
+              "http",
+              "--host",
+              "127.0.0.1",
+              "--port",
+              "8622",
+              "--cuda-device",
+              "3",
+              "--model-path",
+              "@PI05_CHECKPOINT_PATH@"
+            ],
+            "env_passthrough": [
+              "HF_HUB_OFFLINE",
+              "HF_HOME",
+              "PI05_CHECKPOINT_PATH",
+              "TOKENIZERS_PARALLELISM"
+            ],
+            "timeout_s": 600
+          },
+          "session_protocol": "pi05"
+        },
+        {
+          "capacity": 10,
+          "endpoint": "http://127.0.0.1:8623",
+          "gpu_device": 4,
+          "launch": {
+            "command": [
+              "@RPENT_VLA_PYTHON@",
+              "@REPO_ROOT@/rpent/robots/components/pi05_vla_server.py",
+              "--transport",
+              "http",
+              "--host",
+              "127.0.0.1",
+              "--port",
+              "8623",
+              "--cuda-device",
+              "4",
+              "--model-path",
+              "@PI05_CHECKPOINT_PATH@"
+            ],
+            "env_passthrough": [
+              "HF_HUB_OFFLINE",
+              "HF_HOME",
+              "PI05_CHECKPOINT_PATH",
+              "TOKENIZERS_PARALLELISM"
+            ],
+            "timeout_s": 600
+          },
+          "session_protocol": "pi05"
+        }
+      ],
+      "sam": [
+        {
+          "endpoint": "http://127.0.0.1:8614",
+          "capacity": 40,
+          "gpu_device": 1,
+          "launch": {
+            "command": [
+              "@RPENT_SAM3_PYTHON@",
+              "@REPO_ROOT@/rpent/robots/components/sam3_server.py",
+              "--transport",
+              "http",
+              "--host",
+              "127.0.0.1",
+              "--port",
+              "8614",
+              "--cuda-device",
+              "1"
+            ],
+            "timeout_s": 300,
+            "env_passthrough": [
+              "HF_HUB_OFFLINE",
+              "HF_HOME",
+              "SAM3_CHECKPOINT_PATH",
+              "SAM3_BPE_PATH"
+            ]
+          }
+        }
+      ],
+      "development_slots": 8,
+      "planner_rpm": 100
+    }
+  },
+  "robot": "libero",
+  "benchmark": "libero-pro",
+  "scheduling": "pipeline"
+}
